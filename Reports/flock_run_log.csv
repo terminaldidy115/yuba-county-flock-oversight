@@ -1,0 +1,14 @@
+run_datetime,master_rows_before,master_rows_after,new_rows_added,new_rows_date_min,new_rows_date_max,new_rows_blank_reason,new_rows_blank_reason_pct,backdated_entries,backdated_detail
+3/16/26 9:00,718,741,23,2/23/26,3/14/26,10,0.4348,7,2026-02-23|2026-03-02|2026-03-04|2026-03-05|2026-03-06|2026-03-10
+3/16/26 12:38,741,753,12,2/16/26,3/15/26,6,0.5,8,2026-02-16|2026-02-23|2026-03-06|2026-03-09|2026-03-10
+3/16/26 12:40,753,753,0,,,0,0,0,
+3/17/26 9:00,753,777,24,2/19/26,3/16/26,13,54.2,5,2026-02-19 21:25 UTC | reason: nan; 2026-02-19 21:32 UTC | reason: nan; 2026-02-19 21:36 UTC | reason: nan; 2026-03-10 20:56 UTC | reason: nan; 2026-03-11 18:46 UTC | reason: Ycso suspect
+3/18/26 9:00,777,822,45,2/19/26,3/17/26,22,48.9,11,2026-02-19 09:50 UTC | reason: THREATS OF SELF HARM; 2026-02-23 19:21 UTC | reason: Suspect; 2026-02-23 19:22 UTC | reason: Warr; 2026-02-25 15:58 UTC | reason: nan; 2026-03-03 19:53 UTC | reason: nan; 2026-03-05 22:03 UTC | reason: suspect ID; 2026-03-10 17:51 UTC | reason: suspect vehicle; 2026-03-12 05:33 UTC | reason: nan; 2026-03-12 19:46 UTC | reason: nan; 2026-03-14 03:09 UTC | reason: BOLO; 2026-03-14 22:25 UTC | reason: nan
+3/19/26 9:00,822,854,32,2/21/26,3/18/26,21,65.6,6,2026-02-21 03:30 UTC | reason: wanted person; 2026-02-23 20:58 UTC | reason: Suspect; 2026-02-23 20:59 UTC | reason: Warr; 2026-02-24 19:48 UTC | reason: nan; 2026-03-03 21:42 UTC | reason: nan; 2026-03-17 15:11 UTC | reason: nan
+3/20/26 9:31,854,886,32,3/14/26,3/19/26,24,75,1,2026-03-14 21:21 UTC | reason: nan
+3/21/26 9:00,886,886,0,,,0,0,0,
+3/21/26 13:55,886,905,19,2/23/26,3/20/26,11,57.9,10,2026-02-23 23:13 UTC | reason: nan; 2026-02-23 23:16 UTC | reason: nan; 2026-02-23 23:24 UTC | reason: 10-36; 2026-02-23 23:31 UTC | reason: nan; 2026-03-06 17:33 UTC | reason: suspect ID; 2026-03-06 21:17 UTC | reason: suspect ID; 2026-03-14 02:47 UTC | reason: wanted person; 2026-03-17 21:49 UTC | reason: nan; 2026-03-18 19:30 UTC | reason: nan; 2026-03-19 05:40 UTC | reason: nan
+3/22/26 9:00,905,905,0,,,0,0,0,
+2026-03-22 11:23:10,905,967,62,2026-02-23,2026-03-21,42,67.7,3,2026-02-23 23:57 UTC | reason: Suspect; 2026-02-25 15:43 UTC | reason: nan; 2026-03-10 22:58 UTC | reason: nan
+2026-03-22 14:00:18,967,967,0,,,0,0,0,
+2026-03-23 09:00:26,967,967,0,,,0,0,0,
