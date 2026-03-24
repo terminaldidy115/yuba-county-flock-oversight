@@ -12,3 +12,4 @@ run_datetime,master_rows_before,master_rows_after,new_rows_added,new_rows_date_m
 2026-03-22 11:23:10,905,967,62,2026-02-23,2026-03-21,42,67.7,3,2026-02-23 23:57 UTC | reason: Suspect; 2026-02-25 15:43 UTC | reason: nan; 2026-03-10 22:58 UTC | reason: nan
 2026-03-22 14:00:18,967,967,0,,,0,0,0,
 2026-03-23 09:00:26,967,967,0,,,0,0,0,
+2026-03-23 14:00:14,967,994,27,2026-02-23,2026-03-22,13,48.1,12,2026-02-23 20:16 UTC | reason: Warr; 2026-02-23 20:18 UTC | reason: Suspect; 2026-02-23 20:35 UTC | reason: nan; 2026-03-03 03:23 UTC | reason: Drug investigation; 2026-03-06 17:13 UTC | reason: suspect ID; 2026-03-06 20:55 UTC | reason: suspect ID; 2026-03-09 16:24 UTC | reason: 207 sus; 2026-03-09 16:25 UTC | reason: 207; 2026-03-14 21:39 UTC | reason: nan; 2026-03-18 15:54 UTC | reason: nan; 2026-03-21 03:07 UTC | reason: nan; 2026-03-21 03:20 UTC | reason: nan
