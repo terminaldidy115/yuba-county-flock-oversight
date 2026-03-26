@@ -18,3 +18,4 @@ run_datetime,master_rows_before,master_rows_after,new_rows_added,new_rows_date_m
 2026-03-25 09:00:27,1008,1008,0,,,0,0,0,
 2026-03-25 14:00:18,1008,1045,37,2026-02-25,2026-03-24,18,48.6,3,2026-02-25 15:53 UTC | reason: nan; 2026-03-04 17:40 UTC | reason: Drug Intel; 2026-03-19 04:49 UTC | reason: nan
 2026-03-26 09:00:16,1045,1045,0,,,0,0,0,
+2026-03-26 14:00:06,1045,1070,25,2026-03-09,2026-03-25,10,40.0,4,2026-03-09 03:33 UTC | reason: Drug Investigation; 2026-03-10 23:52 UTC | reason: 487 pc suspect; 2026-03-14 02:51 UTC | reason: wanted person; 2026-03-19 17:30 UTC | reason: nan
