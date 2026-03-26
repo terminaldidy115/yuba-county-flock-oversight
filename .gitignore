@@ -3,3 +3,10 @@
 __pycache__/
 *.tmp
 *.log
+Master Audit BACKUP*.xlsx
+Master Audit Backup*.xlsx
+Flock Github Files/
+Crime Data/
+YCSO Flock Arrests/
+flock_debug.py
+search_audit_pacific.xlsx
