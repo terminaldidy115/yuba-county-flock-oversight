@@ -10,8 +10,14 @@ __pycache__/
 # macOS
 .DS_Store
 
+# Temp/log files
+*.tmp
+*.log
+
 # Backup files
 files.zip
 Master Backup/
 Master Backup Lincoln/
 Master Backup Reno/
+Master Audit BACKUP*.xlsx
+Master Audit Backup*.xlsx
