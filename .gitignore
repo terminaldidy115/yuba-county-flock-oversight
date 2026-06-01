@@ -1,26 +1,8 @@
-# Sensitive credentials - never commit these
-proton_2FA_recovery_codes.txt
-proton-recovery-phrase.pdf
+# Ignore everything by default
+*
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-
-# macOS
-.DS_Store
-
-# Temp/log files
-*.tmp
-*.log
-
-# Nested git clone (old workflow, no longer used)
-yuba-county-flock-oversight/
-
-# Backup files
-files.zip
-Master Backup/
-Master Backup Lincoln/
-Master Backup Reno/
-Master Audit BACKUP*.xlsx
-Master Audit Backup*.xlsx
+# Whitelist only what should be tracked
+!.gitignore
+!*.py
+!Master Audit.xlsx
+!search_audit_pacific.xlsx
