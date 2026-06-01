@@ -17,5 +17,5 @@ Flock Safety Transparency Portal: https://transparency.flocksafety.com/yuba-coun
 ## Legal Basis
 
 Data collected under California Public Records Act (CPRA) and monitored for compliance
-with California Vehicle Code § 2413 (SB 34), which requires ALPR operators to maintain
+with Civil Code § 1798.90.52 (SB 34), which requires ALPR operators to maintain
 documented audit logs attributing each search to an authorized user and specific purpose.
