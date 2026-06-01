@@ -1,0 +1,369 @@
+<style>
+/* DeFlock Yuba-Sutter — WordPress paste-ready page */
+/* Font: IBM Plex Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+.df-page * { box-sizing: border-box; margin: 0; padding: 0; }
+.df-page {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #1a1a1a;
+  background: #ffffff;
+  max-width: 860px;
+  margin: 0 auto;
+  border: 1px solid #e0ddd6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Hero */
+.df-hero {
+  padding: 3rem 2.5rem 2.5rem;
+  border-bottom: 1px solid #e0ddd6;
+  background: #fafaf8;
+}
+.df-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a56db;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.df-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a56db;
+}
+.df-hero h1 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #111111;
+  margin-bottom: 1rem;
+  max-width: 560px;
+}
+.df-hero p {
+  font-size: 15px;
+  color: #555550;
+  line-height: 1.75;
+  max-width: 540px;
+  margin-bottom: 1.75rem;
+}
+.df-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.df-btn-primary {
+  background: #1a56db;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.df-btn-primary:hover { background: #1446c0; color: #fff; text-decoration: none; }
+.df-btn-secondary {
+  background: transparent;
+  color: #555550;
+  border: 1px solid #c8c5bc;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.df-btn-secondary:hover { background: #f3f2ee; color: #1a1a1a; text-decoration: none; }
+
+/* Stats bar */
+.df-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid #e0ddd6;
+}
+@media (max-width: 600px) { .df-stats { grid-template-columns: repeat(2, 1fr); } }
+.df-stat {
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid #e0ddd6;
+}
+.df-stat:last-child { border-right: none; }
+.df-stat-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  font-weight: 500;
+  color: #c0392b;
+}
+.df-stat-label {
+  font-size: 12px;
+  color: #777772;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Sections */
+.df-section {
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid #e0ddd6;
+}
+.df-section:last-of-type { border-bottom: none; }
+.df-section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999993;
+  margin-bottom: 0.75rem;
+}
+.df-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 0.75rem;
+}
+.df-section > p {
+  font-size: 14px;
+  color: #555550;
+  line-height: 1.75;
+}
+
+/* What is ALPR cards */
+.df-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 1.25rem;
+}
+.df-card {
+  background: #fafaf8;
+  border: 1px solid #e0ddd6;
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+}
+.df-card-icon {
+  font-size: 18px;
+  color: #1a56db;
+  margin-bottom: 8px;
+}
+.df-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 5px;
+}
+.df-card p {
+  font-size: 13px;
+  color: #666661;
+  line-height: 1.6;
+}
+
+/* Findings list */
+.df-findings {
+  list-style: none;
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.df-findings li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #444440;
+  line-height: 1.65;
+}
+.df-findings li .df-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c0392b;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+.df-findings li strong {
+  color: #111111;
+  font-weight: 600;
+}
+
+/* Action cards */
+.df-action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 1.25rem;
+}
+.df-action-card {
+  background: #fafaf8;
+  border: 1px solid #e0ddd6;
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+}
+.df-action-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.df-action-card h3 i { color: #1a56db; font-size: 14px; }
+.df-action-card p {
+  font-size: 13px;
+  color: #666661;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.df-action-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a56db;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.df-action-link:hover { text-decoration: underline; color: #1446c0; }
+
+/* Footer */
+.df-footer {
+  padding: 1.25rem 2.5rem;
+  background: #f3f2ee;
+  border-top: 1px solid #e0ddd6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.df-footer p { font-size: 12px; color: #999993; }
+.df-footer-links { display: flex; gap: 16px; }
+.df-footer-links a { font-size: 12px; color: #777772; text-decoration: none; }
+.df-footer-links a:hover { color: #1a1a1a; text-decoration: underline; }
+</style>
+
+<div class="df-page">
+
+  <!-- Hero -->
+  <div class="df-hero">
+    <p class="df-eyebrow"><img src="DeFlock Yuba Sutter County.png" alt="DeFlock Yuba Sutter County" style="height:1.2em;width:1.2em;vertical-align:middle;border-radius:50%;margin-right:6px;object-fit:cover"> Community surveillance oversight · Yuba-Sutter County</p>
+    <h1>Your license plate is being tracked. Do you know by whom?</h1>
+    <p>Flock Safety cameras across Yuba-Sutter county are logging vehicle movements 24/7. We're documenting what the Sheriff's Office isn't telling the public — and what your Board of Supervisors needs to answer for.</p>
+    <div class="df-hero-actions">
+      <a href="#df-action" class="df-btn-primary"><i class="fa-solid fa-arrow-down"></i> Take action</a>
+      <a href="https://deflock.me" target="_blank" rel="noopener" class="df-btn-secondary"><i class="fa-solid fa-arrow-up-right-from-square"></i> What is DeFlock?</a>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="df-stats">
+    <div class="df-stat">
+      <div class="df-stat-num">53%</div>
+      <div class="df-stat-label">Of officer searches have no documented reason</div>
+    </div>
+    <div class="df-stat">
+      <div class="df-stat-num">60 days</div>
+      <div class="df-stat-label">Data retention — far below peer agencies</div>
+    </div>
+    <div class="df-stat">
+      <div class="df-stat-num">0</div>
+      <div class="df-stat-label">Interagency sharing agreements on record</div>
+    </div>
+    <div class="df-stat">
+      <div class="df-stat-num">SB 34</div>
+      <div class="df-stat-label">State law YCSO may be violating right now</div>
+    </div>
+  </div>
+
+  <!-- What is ALPR -->
+  <div class="df-section">
+    <p class="df-section-label">What is this</p>
+    <h2>Automated license plate readers — explained</h2>
+    <p>Flock Safety cameras photograph every passing vehicle, log the license plate, time, and location, and feed that data into a searchable network. The Yuba County Sheriff's Office operates this network — and shares it with other agencies — without meaningful public oversight.</p>
+    <div class="df-card-grid">
+      <div class="df-card">
+        <div class="df-card-icon"><i class="fa-solid fa-camera" aria-hidden="true"></i></div>
+        <h3>Always-on surveillance</h3>
+        <p>Cameras run continuously, building a database of where every vehicle has been.</p>
+      </div>
+      <div class="df-card">
+        <div class="df-card-icon"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i></div>
+        <h3>Shared without notice</h3>
+        <p>YCSO shares data with outside agencies — with no public disclosure of who or why.</p>
+      </div>
+      <div class="df-card">
+        <div class="df-card-icon"><i class="fa-solid fa-file-slash" aria-hidden="true"></i></div>
+        <h3>No audit trail</h3>
+        <p>More than half of database searches contain no documented reason — a likely violation of state law.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Findings -->
+  <div class="df-section">
+    <p class="df-section-label">Key findings</p>
+    <h2>What the records show</h2>
+    <ul class="df-findings">
+      <li><span class="df-dot"></span><div><strong>53% blank reason rate.</strong> YCSO's own audit data shows officers ran searches with no logged justification — a likely violation of Vehicle Code § 2413 (SB 34).</div></li>
+      <li><span class="df-dot"></span><div><strong>Policy contradicts contract.</strong> YCSO Policy 433 retains data for only 60 days — but peer agencies cite state law requiring one year minimum. YCSO provides no statutory basis for the shorter period.</div></li>
+      <li><span class="df-dot"></span><div><strong>December 2025 platform change.</strong> Flock removed officer-level logging from its portal, eliminating an entire layer of accountability — and placing all California agencies in likely non-compliance with state law.</div></li>
+      <li><span class="df-dot"></span><div><strong>No sharing agreements on record.</strong> Despite appearing as a confirmed sharing partner on other agencies' transparency portals, YCSO has no interagency data-sharing agreements on file.</div></li>
+      <li><span class="df-dot"></span><div><strong>Measure K conflict of interest.</strong> The Undersheriff chairs the Citizens Oversight Committee that supervises funds flowing to his own department — a structural governance failure under California Government Code § 1090.</div></li>
+    </ul>
+  </div>
+
+  <!-- Take Action -->
+  <div class="df-section" id="df-action">
+    <p class="df-section-label">Take action</p>
+    <h2>What you can do</h2>
+    <div class="df-action-grid">
+      <div class="df-action-card">
+        <h3><i class="fa-solid fa-microphone" aria-hidden="true"></i> Attend the BOS meeting</h3>
+        <p>The Board of Supervisors needs to hear from residents. Two minutes at the podium matters.</p>
+        <a href="https://www.yuba.org/government/board_of_supervisors/index.php" target="_blank" rel="noopener" class="df-action-link">Find meeting dates <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="df-action-card">
+        <h3><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact your supervisor</h3>
+        <p>Let your elected representative know you expect answers on ALPR oversight and accountability.</p>
+        <a href="https://www.yuba.org/government/board_of_supervisors/supervisors.php" target="_blank" rel="noopener" class="df-action-link">Find your supervisor <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="df-action-card">
+        <h3><i class="fa-solid fa-users" aria-hidden="true"></i> Join DeFlock NorCal</h3>
+        <p>Connect with others across Northern California working on the same surveillance issues.</p>
+        <a href="https://deflock.me" target="_blank" rel="noopener" class="df-action-link">Visit DeFlock.me <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="df-action-card">
+        <h3><i class="fa-solid fa-eye" aria-hidden="true"></i> Spread awareness</h3>
+        <p>Share this page with neighbors in Plumas Lake, Linda, Olivehurst, and Marysville.</p>
+        <a href="#" onclick="navigator.clipboard.writeText(window.location.href); this.textContent='Link copied!'; return false;" class="df-action-link">Copy page link <i class="fa-solid fa-copy"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="df-footer">
+    <p>DeFlock Yuba-Sutter &nbsp;·&nbsp; Community oversight project &nbsp;·&nbsp; Not affiliated with any political party</p>
+    <div class="df-footer-links">
+      <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2413.&lawCode=VEH" target="_blank" rel="noopener">SB 34 / VC § 2413</a>
+      <a href="https://deflock.me" target="_blank" rel="noopener">DeFlock.me</a>
+      <a href="https://www.eff.org/pages/automated-license-plate-readers" target="_blank" rel="noopener">EFF on ALPRs</a>
+    </div>
+  </div>
+
+</div>

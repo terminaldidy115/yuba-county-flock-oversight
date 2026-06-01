@@ -1,0 +1,18 @@
+
+[2026-05-22 14:00:21] Starting Flock Audit update...
+  Backup saved → Master Audit BACKUP 20260522_140021.xlsx
+  Downloading CSV via browser automation...
+  Opening https://transparency.flocksafety.com/yuba-county-ca-so ...
+  Waiting for page to fully load...
+  Looking for Download CSV button...
+  Found button: 'Download CSV'
+  Downloaded 477 rows from portal
+  Master currently has 477 rows
+  New rows added: 14
+  No backdated entries detected
+  Master updated → /Users/thomashammock/Desktop/Flock/Master Audit.xlsx
+  Total rows now: 491
+  Run log updated → /Users/thomashammock/Desktop/Flock/Reports/flock_run_log.csv
+Done.
+
+[Reporter] Email sent via Mail.app -> thomas.hammock81@gmail.com

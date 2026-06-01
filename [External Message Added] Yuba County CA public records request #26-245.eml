@@ -1,0 +1,974 @@
+Delivered-To: thomas.hammock81@gmail.com
+Received: by 2002:a17:907:3f05:b0:bd2:85ff:e8b0 with SMTP id hq5csp2999199ejc;
+        Tue, 19 May 2026 19:27:44 -0700 (PDT)
+X-Received: by 2002:a05:620a:a1ce:20b0:911:e556:c7c5 with SMTP id af79cd13be357-911e556cc9cmr1631907985a.8.1779244064084;
+        Tue, 19 May 2026 19:27:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779244064; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VTdt7+embGo/996w/EmNA995x5f1Gq6e652Dowo34RAFicymfQj/zxJhPexTvhXJAF
+         lEDkl6/mbRSMYPk+fYHw3TTmCqfoFe/SG3Y3xKURToiWMJhWKE+n1hpycD5xrskL7VzF
+         fdfUBikSQVn3zEuoj/X7c7rRim0674X2kp3vaXWWAkVWWRtyGycb+OJTaGHVS2WwEC3F
+         vpqNPkRBIkaDhv1hnrocVHf9QYi3h4JwMoiMidk5e7ypPkLmoLiJUNOnVSy55T07L9Rh
+         GIqwIRRXtWn5s1iScc5mKNL/w/bLiSTQuCyYDWRim+nAUGvc3si7RmfCPV7eHEtBuCLW
+         DU3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:feedback-id:to:reply-to:message-id:subject:date:from
+         :dkim-signature:dkim-signature;
+        bh=nHpL8CjAqQ2Tfb9O8ALxbXHMt82f1pkT0XIvZal4jwk=;
+        fh=i3FeY3+qPlhmjkbhQtbe7TseA6u5uGwgLcUhqz5FUKM=;
+        b=HBbIlQPecX+D1NFE60vQ5ISN3l1jGEDNYN1G8MK7vKWqmhmvRqe7OGcwcM5a4dim97
+         kCZo/YveWtF3fqE8swBZ1mKJPJtAF2IAKLetuwGLmavazRBqbjSpmjmzr/4uUIfOtSwf
+         P+xwPb1yQSJxYz3p99I2yyiouhAE5ozL8bLY6GQ4oZfX3arL1Jv4b1DdYUsN7IpSMmNT
+         D8ytFKzsOxWWjDXkPrtGebk0NYsKRVNSDJJlEWfhHxpVB0kSZmbKBdibPYNGFy0iMbau
+         XsE+StFt8f11jmBFsB0hK5otorNiAVwwmc6upb6W3NIfYpq+PUTsUviyT0qAbywiJjn6
+         gkjw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b=CWbFfXf4;
+       dkim=pass header.i=@nextrequest.com header.s=20161018195854pm header.b=RJYKkylQ;
+       spf=pass (google.com: domain of pm_bounces@pmbounces.nextrequest.com designates 50.31.156.118 as permitted sender) smtp.mailfrom=pm_bounces@pmbounces.nextrequest.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nextrequest.com
+Return-Path: <pm_bounces@pmbounces.nextrequest.com>
+Received: from sc-ord-mta118.mtasv.net (sc-ord-mta118.mtasv.net. [50.31.156.118])
+        by mx.google.com with ESMTPS id af79cd13be357-910be364324si1999501185a.498.2026.05.19.19.27.43
+        for <thomas.hammock81@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 May 2026 19:27:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pm_bounces@pmbounces.nextrequest.com designates 50.31.156.118 as permitted sender) client-ip=50.31.156.118;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b=CWbFfXf4;
+       dkim=pass header.i=@nextrequest.com header.s=20161018195854pm header.b=RJYKkylQ;
+       spf=pass (google.com: domain of pm_bounces@pmbounces.nextrequest.com designates 50.31.156.118 as permitted sender) smtp.mailfrom=pm_bounces@pmbounces.nextrequest.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nextrequest.com
+X-KumoRef: eyJfQF8iOiJcXF8vIiwicmVjaXBpZW50IjoidGhvbWFzLmhhbW1vY2s4MUBnbWFpbC5jb20ifQ==
+DKIM-Signature: v=1; a=rsa-sha256; d=pm.mtasv.net; s=pm20250806; c=relaxed/relaxed;
+	bh=nHpL8CjAqQ2Tfb9O8ALxbXHMt82f1pkT0XIvZal4jwk=;
+	h=from:to:subject:date:mime-version:content-type:sender:cc:date:message-id;
+	t=1779244063; x=1779848863;
+	b=CWbFfXf4ev8cx5tiXEMAIYpemMMA0nx9IaYl956b1EouHsvQbhmyGkDPaYtFrFamgI44ZIrVZ
+	WYr1Z31ir9z5M8qbZa42O3cVh6AngnBXCdlPyMmR5sOG6rfJTXyzJJvY7ftxFw/cSBAdOgbuQ3c
+	kyvsnqXofyl3QjFfV0y91kuYa7eorQwTZaoHb15QjGJUvhi4Ig7fLE2kd19UEylMm/bqIK33Y58
+	DjdhXdtJUF04DBE0cqcpsC55B2X6PZ5tiUZJMUuEgUqn7IBDoBySa7c+xvs3HcCKf4gftuRCmkk
+	vXa7CPattWNxHS/r2WFA/slNVQrftkzgK8P0fcHxpKgA==;
+Received: from ip-172-26-21-64.us-east-2.compute.internal (172.26.21.64)
+  by production-pmta-useast2.internal.postmarkapp.com (KumoMTA 10.97.242.244) 
+  with ESMTP id 7b6f1b2853f311f1ab540209af5131b9 for <thomas.hammock81@gmail.com>;
+  Wed, 20 May 2026 02:27:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; d=nextrequest.com; s=20161018195854pm;
+	c=relaxed/relaxed; i=messages@nextrequest.com; t=1779244063; x=1779416863;
+	h=date:date:from:from:message-id:reply-to:reply-to:sender:subject:subject:to:
+	to:cc:feedback-id:mime-version:content-type;
+	bh=nHpL8CjAqQ2Tfb9O8ALxbXHMt82f1pkT0XIvZal4jwk=;
+	b=RJYKkylQX/2uqHcc3PAW6isDw3xeDPCydC+s/N7BFsRev7LjIK+l2geOTmBL/wBuvRjYXXG6qnF
+	a0453aTv64sCfYKYktP0maso4S6M7zF4hGEKKTjBtki2E6Jdl6aRZJhh0rlxQgZmm4RFsgUF4I/u2
+	cU9y3o4gD7Gltv0S8DM=
+From: Yuba County CA Public Records <messages@nextrequest.com>
+Date: Wed, 20 May 2026 02:27:43 +0000
+Subject: [External Message Added] Yuba County CA public records request
+ #26-245
+Message-Id: <ec44c7d0-6303-48ce-b67c-d114db848ffb@mtasv.net>
+Reply-To: yubacountyca_26-245-requester-notes@inbound.nextrequest.com
+To: thomas.hammock81@gmail.com
+Feedback-ID: s2404621-ZXh0ZXJuYWxfbWVzc2FnZV9hZGRlZA==:s2404621:a123637:postmark
+X-Complaints-To: abuse@postmarkapp.com
+X-Job: 123637_2404621
+X-PM-Message-Id: ec44c7d0-6303-48ce-b67c-d114db848ffb
+X-PM-Tag: external_message_added
+X-PM-RCPT: |bTB8MTIzNjM3fDI0MDQ2MjF8dGhvbWFzLmhhbW1vY2s4MUBnbWFpbC5jb20=|
+X-PM-Message-Options: v1;1.Btxje7kzzBsTjnJzADNa8g.F-HlSHu2tvW7M-5OYEgyVPJ4BRqIFDHa7aoIEi8Qg3tuVraKUQGI3BjITA1DCWksT957wh3yL5wK1wG0tEQuL0SxhdIeutMC8zG1aVSTwy0vRq4jRooCTtiz4lsOYzE3CYMCwBprXFA4fIg2RcNfhwtpPQn-pNBk8E43rO7Wbw4-4CQyXjLtX5R3aqzZ5WZA
+MIME-Version: 1.0
+X-virtual-MTA: ord-50-31-156-118
+X-PM-MTA-Pool: transactional-1
+Content-Type: multipart/alternative;
+	boundary=mk3-010cce067c7748e5959ca06e7c212962; charset=UTF-8
+
+--mk3-010cce067c7748e5959ca06e7c212962
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Yuba County CA
+
+************************************************************************
+
+
+A message was sent to you regarding record request #26-245:
+
+This response is to your request of May 9, Next Request #26-245.&nbsp;Pleas=
+e see our responses below corresponding to your numbered requests.
+
+&nbsp;
+
+1. Authorization and Access Structure
+
+This request does not seek the names, passwords, or login credentials of in=
+dividual users. It seeks the following administrative governance records, n=
+one of which create a security vulnerability and none of which are ALPR dat=
+a:
+
+The personnel classifications or job categories authorized to access and se=
+arch the Flock Safety ALPR system, for example: sworn patrol deputy, detect=
+ive, crime analyst, records personnel, or other designated role
+
+Response:&nbsp;Please see Policy 433.2(b) and 433.3.1(a).&nbsp;
+
+&nbsp;
+
+The written process by which access to the Flock Safety system is granted t=
+o an individual, including who approves access requests and what criteria m=
+ust be met
+
+Response:&nbsp;Please see Policy 433.2(b) and 433.3.1(a).
+
+&nbsp;
+
+The written process by which access to the Flock Safety system is revoked, =
+including the circumstances triggering revocation and who is responsible fo=
+r executing it
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+The training curriculum, course materials, or written training standards re=
+quired to be completed before a member is authorized to access the ALPR sys=
+tem, as referenced in Policy 433.3.1(b) and Policy 433.4(g)
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any training completion records, rosters, or certifications documenting whi=
+ch personnel classifications have satisfied the training requirement during=
+ the requested period, excluding individual names if YCSO contends those ar=
+e exempt, but including aggregate counts by personnel classification, date =
+range, and training module completed
+
+Response:&nbsp;Subject to certain exceptions stated in Penal Code section 8=
+32.7, the personnel records of peace officers and custodial officers and re=
+cords maintained by a state or local agency pursuant to Section 832.5, or i=
+nformation obtained from these records, are confidential and shall not be d=
+isclosed in any criminal or civil proceeding except by discovery pursuant t=
+o Sections 1043 and 1046 of the Evidence Code.&nbsp;(Penal Code =C2=A7832.7=
+.)&nbsp;Therefore, to the extent such record may exist, it would be exempt =
+from disclosure under the Public Records Act. (Govt. Code =C2=A77927.705.)
+
+&nbsp;
+
+2. Audit Log Integrity and Platform Transition Records
+
+&nbsp;
+
+The prior response indicated that no internal audit logs exist beyond the F=
+lock Safety Transparency Portal. This category does not re-request the unde=
+rlying log. It requests records bearing on the integrity and completeness o=
+f whatever records do exist:
+
+&nbsp;
+
+Any records showing ALPR searches that were deleted, voided, modified, or o=
+therwise removed from the active log after initial entry, including any cha=
+nge log, edit history, or audit trail associated with search records
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any records documenting the December 2025 Flock Safety platform change, inc=
+luding any communications between YCSO personnel and Flock Safety regarding=
+ the effect of that change on officer-level free-text logging, reason field=
+ documentation, or user attribution in search records
+
+Response:&nbsp;Please see the agenda and material from the Board of Supervi=
+sors meetings of August 26, 2025 (agenda item 415/2025), July 22, 2025 (age=
+nda item 263/2025) available on the County website.&nbsp;
+
+&nbsp;
+
+Any internal YCSO assessment, memorandum, or communication addressing wheth=
+er the Flock Safety Transparency Portal satisfies YCSO's documentation obli=
+gations under Civil Code =C2=A7 1798.90.52 and Policy 433.6(e)
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any records showing what officer-level search documentation, if any, YCSO m=
+aintains independently of the Flock platform, including any locally stored =
+logs, dispatch records, CAD entries, or other records that capture the reas=
+on for an ALPR search at the individual officer level; or, if no such recor=
+ds exist, a written statement to that effect
+
+Response:&nbsp;This request is overly broad.&nbsp;In order for us to assist=
+ you, we request that you provide the specific instance, report number, loc=
+ation,&nbsp;date, and time for any CAD information you are requesting.&nbsp=
+;&nbsp;
+
+&nbsp;
+
+3. Annual Audit Documentation =E2=80=94 Policy 433.8
+
+&nbsp;
+
+All internal memoranda, audit reports, compliance summaries, or any equival=
+ent documentation produced pursuant to ALPR Policy 433.8, including:
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any memoranda from the Operations Division Captain or Sheriff's designee to=
+ the Sheriff documenting ALPR usage audits for the requested period
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any substitute, equivalent, or alternative documentation that YCSO contends=
+ satisfies the Policy 433.8 annual audit requirement
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+If no such records exist, a written statement confirming that no annual aud=
+its were conducted or documented for the period covered by this request
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+4. Interagency Data Sharing =E2=80=94 Written Requests and Approvals
+
+&nbsp;
+
+Pursuant to ALPR Policy 433.9, which requires written requests and Sheriff =
+or designee approval before ALPR data is shared with outside agencies, and =
+requires approved requests to be retained on file:
+
+&nbsp;
+
+All written requests received from outside agencies for access to YCSO Floc=
+k Safety ALPR data during the requested period
+
+Response:&nbsp;We have no documents responsive to this request.&nbsp;
+
+&nbsp;
+
+All written approvals or denials of such requests
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any internal YCSO records, directives, or written policies governing YCSO p=
+ersonnel=E2=80=99s use of the State, Nationwide, Law Enforcement, or Commun=
+ity Network access tiers to query plate data collected by agencies other th=
+an YCSO, including any authorization or approval required before such acces=
+s is used.
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+If no written requests, approvals, or denials exist for the requested perio=
+d, a written statement confirming that no outside agency requested YCSO Flo=
+ck data and that YCSO personnel did not access other agencies=E2=80=99 data=
+ through the network tiers described above during the period covered by thi=
+s request
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+5. SB 34 Compliance Documentation
+
+&nbsp;
+
+Any internal audits, compliance reviews, assessments, or correspondence add=
+ressing YCSO=E2=80=99s compliance with Civil Code =C2=A7 1798.90.5 et seq. =
+(SB 34), including:
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any communications between YCSO personnel and Flock Safety representatives =
+regarding SB 34 compliance, documentation requirements, audit log completen=
+ess, or platform changes affecting officer-level logging
+
+Response:&nbsp;We have no documents responsive to this request.
+
+&nbsp;
+
+Any communications between YCSO and the California Department of Justice re=
+garding ALPR usage or SB 34 reporting obligations
+
+Response: We have no documents responsive to this request.
+
+&nbsp;
+
+Any internal assessments of whether the Flock Safety Transparency Portal sa=
+tisfies YCSO's SB 34 documentation requirements
+
+Response:&nbsp;We have no documents responsive to this request.
+
+
+
+&nbsp;
+
+Please consider this as a final response to your Public Record Act Request.
+
+&nbsp;
+
+
+
+&nbsp;
+
+If you have any questions please do not hesitate to contact our office at (=
+530) 749-7565.&nbsp;&nbsp;&nbsp;
+
+&nbsp;
+
+
+
+
+
+
+
+
+************************************************************************   =
+                      =20
+<em>Questions about your request?</em> Reply to this email or sign in to co=
+ntact staff at Yuba County CA.<br><br><em>Technical support:</em> See our <=
+a href=3D"https://www.civicplus.help/nextrequest/docs/requesters">help page=
+</a>
+
+--mk3-010cce067c7748e5959ca06e7c212962
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <title>[External Message Added] Yuba County CA public records request #=
+26-245</title>
+    <style type=3D"text/css" rel=3D"stylesheet" media=3D"all">@media only s=
+creen and (max-width: 600px) { .email-body_inner, .email-footer { width: 10=
+0% !important } }
+@media only screen and (max-width: 500px) { .button { width: 100% !importan=
+t } }</style>
+  </head>
+ =20
+  <body style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica=
+ Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; height: 100%; m=
+argin: 0; line-height: 1.4; background-color: #FBFBFB; -webkit-text-size-ad=
+just: none; width: 100% !important;">
+    <span style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helveti=
+ca Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">
+      <table class=3D"nextrequest-white" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" style=3D"font-family: &quot;Open Sans&quot;, =
+Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: borde=
+r-box; background-color: #FBFBFB;">
+        <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;He=
+lvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;"><tr>
+          <td align=3D"center" valign=3D"top" class=3D"mcnTextContent" styl=
+e=3D"padding: 9px 18px; font-family: &quot;Open Sans&quot;, Arial, &quot;He=
+lvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">
+            <p class=3D"sub preheader-reply-delimiter" align=3D"center" sty=
+le=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;=
+, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-a=
+lign: center; margin-top: 0; font-size: 10px; color: #1C1C41;">
+              -- Attach a non-image file and/or reply ABOVE THIS LINE with =
+a message, and it will be sent to staff on this request. --
+            </p>
+          </td>
+        </tr>
+      </tbody></table>
+    </span>
+    <table class=3D"email-wrapper" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvet=
+ica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; width: 100%;=
+ margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; =
+-premailer-cellspacing: 0; background-color: #FFFFFF;">
+      <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helv=
+etica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;"><tr>
+        <td align=3D"center" style=3D"font-family: &quot;Open Sans&quot;, A=
+rial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border=
+-box;">
+          <table class=3D"email-content" width=3D"100%" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;=
+Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; width:=
+ 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpaddin=
+g: 0; -premailer-cellspacing: 0;">
+            <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial, &quo=
+t;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;"><tr=
+>
+              <td class=3D"email-body" width=3D"100%" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-family: &quot;Open Sans&quot;, Arial, sans-ser=
+if; box-sizing: border-box; font-size: 16px; color: #1C1C41; width: 100%; m=
+argin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -p=
+remailer-cellspacing: 0; background-color: #FBFBFB;">
+                <table class=3D"email-body_inner" align=3D"center" width=3D=
+"50" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family: &quot;Open S=
+ans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-si=
+zing: border-box; width: 550px; margin: 92px auto 0; padding: 0; -premailer=
+-width: 570px; -premailer-cellpadding: 0; -premailer-cellspacing: 0;">
+                  <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial=
+, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box=
+;"><tr>
+                    <td align=3D"center" class=3D"t--title" style=3D"font-f=
+amily: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica,=
+ sans-serif; box-sizing: border-box; font-size: 20px; line-height: 1.6;">
+                      <div class=3D"shim-bottom-16px" style=3D"font-family:=
+ &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-=
+serif; box-sizing: border-box; margin-bottom: 16px;">
+                        Yuba County CA Public Records
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class=3D"white-background" style=3D"background-color:=
+ #FFFFFF;">
+                    <td class=3D"message-padding" style=3D"font-family: &qu=
+ot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-seri=
+f; box-sizing: border-box; padding: 40px; border: 2px solid #0F1C70;">
+                      <div class=3D"t--subheader t--bold" style=3D"font-fam=
+ily: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, s=
+ans-serif; box-sizing: border-box; font-size: 24px; line-height: 36px; font=
+-weight: 600;">A message was sent to you regarding record request #26-245:<=
+/div>
+                      <div class=3D"shim1-top t--small t--primary message-c=
+ontent" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica=
+ Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; font-size: 16px=
+; line-height: 24px; color: #09090B; margin-top: 24px;">
+                        <p style=3D"font-family: &quot;Open Sans&quot;, Ari=
+al, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-b=
+ox; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; m=
+argin-bottom: 0;">This response is to your request of May 9, Next Request #=
+26-245.&nbsp;Please see our responses below corresponding to your numbered =
+requests.</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;H=
+elvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-he=
+ight: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-botto=
+m: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &qu=
+ot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; lin=
+e-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-b=
+ottom: 0;"><strong style=3D"font-family: &quot;Open Sans&quot;, Arial, &quo=
+t;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">1. =
+Authorization and Access Structure</strong></p><p style=3D"font-family: &qu=
+ot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-seri=
+f; box-sizing: border-box; line-height: 1.5em; text-align: left; margin-top=
+: 0; font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quo=
+t;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif=
+; box-sizing: border-box;">This request does not seek the names, passwords,=
+ or login credentials of individual users. It seeks the following administr=
+ative governance records, none of which create a security vulnerability and=
+ none of which are ALPR data:</strong></p><p style=3D"font-family: &quot;Op=
+en Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; bo=
+x-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; =
+font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Ope=
+n Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box=
+-sizing: border-box;">The personnel classifications or job categories autho=
+rized to access and search the Flock Safety ALPR system, for example: sworn=
+ patrol deputy, detective, crime analyst, records personnel, or other desig=
+nated role</strong></p><p style=3D"font-family: &quot;Open Sans&quot;, Aria=
+l, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-bo=
+x; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; ma=
+rgin-bottom: 0;">Response:&nbsp;Please see Policy 433.2(b) and 433.3.1(a).&=
+nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helve=
+tica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height=
+: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0=
+;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;H=
+elvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-he=
+ight: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-botto=
+m: 0;"><strong style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;He=
+lvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">The wri=
+tten process by which access to the Flock Safety system is granted to an in=
+dividual, including who approves access requests and what criteria must be =
+met</strong></p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quo=
+t;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line=
+-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bo=
+ttom: 0;">Response:&nbsp;Please see Policy 433.2(b) and 433.3.1(a).</p><p s=
+tyle=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quo=
+t;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text=
+-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp;</p>=
+<p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue=
+&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; =
+text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><stron=
+g style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&=
+quot;, Helvetica, sans-serif; box-sizing: border-box;">The written process =
+by which access to the Flock Safety system is revoked, including the circum=
+stances triggering revocation and who is responsible for executing it</stro=
+ng></p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helveti=
+ca Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: =
+1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"=
+>Response:&nbsp;We have no documents responsive to this request.</p><p styl=
+e=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;,=
+ Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-al=
+ign: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp;</p><p =
+style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&qu=
+ot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; tex=
+t-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><strong s=
+tyle=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quo=
+t;, Helvetica, sans-serif; box-sizing: border-box;">The training curriculum=
+, course materials, or written training standards required to be completed =
+before a member is authorized to access the ALPR system, as referenced in P=
+olicy 433.3.1(b) and Policy 433.4(g)</strong></p><p style=3D"font-family: &=
+quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-se=
+rif; box-sizing: border-box; line-height: 1.5em; text-align: left; margin-t=
+op: 0; font-size: 16px; margin-bottom: 0;">Response:&nbsp;We have no docume=
+nts responsive to this request.</p><p style=3D"font-family: &quot;Open Sans=
+&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizin=
+g: border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-si=
+ze: 16px; margin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open =
+Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-s=
+izing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; fon=
+t-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open S=
+ans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-si=
+zing: border-box;">Any training completion records, rosters, or certificati=
+ons documenting which personnel classifications have satisfied the training=
+ requirement during the requested period, excluding individual names if YCS=
+O contends those are exempt, but including aggregate counts by personnel cl=
+assification, date range, and training module completed</strong></p><p styl=
+e=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;,=
+ Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-al=
+ign: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">Response:&nbs=
+p;Subject to certain exceptions stated in Penal Code section 832.7, the per=
+sonnel records of peace officers and custodial officers and records maintai=
+ned by a state or local agency pursuant to Section 832.5, or information ob=
+tained from these records, are confidential and shall not be disclosed in a=
+ny criminal or civil proceeding except by discovery pursuant to Sections 10=
+43 and 1046 of the Evidence Code.&nbsp;(Penal Code =C2=A7832.7.)&nbsp;There=
+fore, to the extent such record may exist, it would be exempt from disclosu=
+re under the Public Records Act. (Govt. Code =C2=A77927.705.)</p><p style=3D=
+"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Hel=
+vetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-align:=
+ left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp;</p><p styl=
+e=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;,=
+ Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-al=
+ign: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><strong style=
+=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, =
+Helvetica, sans-serif; box-sizing: border-box;">2. Audit Log Integrity and =
+Platform Transition Records</strong></p><p style=3D"font-family: &quot;Open=
+ Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-=
+sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; fo=
+nt-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open =
+Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-s=
+izing: border-box;">&nbsp;</strong></p><p style=3D"font-family: &quot;Open =
+Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-s=
+izing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; fon=
+t-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open S=
+ans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-si=
+zing: border-box;">The prior response indicated that no internal audit logs=
+ exist beyond the Flock Safety Transparency Portal. This category does not =
+re-request the underlying log. It requests records bearing on the integrity=
+ and completeness of whatever records do exist:</strong></p><p style=3D"fon=
+t-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helveti=
+ca, sans-serif; box-sizing: border-box; line-height: 1.5em; text-align: lef=
+t; margin-top: 0; font-size: 16px; margin-bottom: 0;"><strong style=3D"font=
+-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetic=
+a, sans-serif; box-sizing: border-box;">&nbsp;</strong></p><p style=3D"font=
+-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetic=
+a, sans-serif; box-sizing: border-box; line-height: 1.5em; text-align: left=
+; margin-top: 0; font-size: 16px; margin-bottom: 0;"><strong style=3D"font-=
+family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica=
+, sans-serif; box-sizing: border-box;">Any records showing ALPR searches th=
+at were deleted, voided, modified, or otherwise removed from the active log=
+ after initial entry, including any change log, edit history, or audit trai=
+l associated with search records</strong></p><p style=3D"font-family: &quot=
+;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;=
+ box-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: =
+0; font-size: 16px; margin-bottom: 0;">Response:&nbsp;We have no documents =
+responsive to this request.</p><p style=3D"font-family: &quot;Open Sans&quo=
+t;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: b=
+order-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: =
+16px; margin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans=
+&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizin=
+g: border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-si=
+ze: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open Sans&=
+quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing=
+: border-box;">Any records documenting the December 2025 Flock Safety platf=
+orm change, including any communications between YCSO personnel and Flock S=
+afety regarding the effect of that change on officer-level free-text loggin=
+g, reason field documentation, or user attribution in search records</stron=
+g></p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetic=
+a Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1=
+.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">=
+Response:&nbsp;Please see the agenda and material from the Board of Supervi=
+sors meetings of August 26, 2025 (agenda item 415/2025), July 22, 2025 (age=
+nda item 263/2025) available on the County website.&nbsp;</p><p style=3D"fo=
+nt-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvet=
+ica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-align: le=
+ft; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp;</p><p style=3D=
+"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Hel=
+vetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-align:=
+ left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><strong style=3D"=
+font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helv=
+etica, sans-serif; box-sizing: border-box;">Any internal YCSO assessment, m=
+emorandum, or communication addressing whether the Flock Safety Transparenc=
+y Portal satisfies YCSO's documentation obligations under Civil Code =C2=A7=
+ 1798.90.52 and Policy 433.6(e)</strong></p><p style=3D"font-family: &quot;=
+Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; =
+box-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0=
+; font-size: 16px; margin-bottom: 0;">Response:&nbsp;We have no documents r=
+esponsive to this request.</p><p style=3D"font-family: &quot;Open Sans&quot=
+;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: bo=
+rder-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 1=
+6px; margin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&=
+quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing=
+: border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-siz=
+e: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open Sans&q=
+uot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing:=
+ border-box;">Any records showing what officer-level search documentation, =
+if any, YCSO maintains independently of the Flock platform, including any l=
+ocally stored logs, dispatch records, CAD entries, or other records that ca=
+pture the reason for an ALPR search at the individual officer level; or, if=
+ no such records exist, a written statement to that effect</strong></p><p s=
+tyle=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quo=
+t;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text=
+-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">Response:&=
+nbsp;This request is overly broad.&nbsp;In order for us to assist you, we r=
+equest that you provide the specific instance, report number, location,&nbs=
+p;date, and time for any CAD information you are requesting.&nbsp;&nbsp;</p=
+><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neu=
+e&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em;=
+ text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp=
+;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica=
+ Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.=
+5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><=
+strong style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">3. Annual Audit=
+ Documentation =E2=80=94 Policy 433.8</strong></p><p style=3D"font-family: =
+&quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-s=
+erif; box-sizing: border-box; line-height: 1.5em; text-align: left; margin-=
+top: 0; font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &=
+quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-se=
+rif; box-sizing: border-box;">&nbsp;</strong></p><p style=3D"font-family: &=
+quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-se=
+rif; box-sizing: border-box; line-height: 1.5em; text-align: left; margin-t=
+op: 0; font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &q=
+uot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-ser=
+if; box-sizing: border-box;">All internal memoranda, audit reports, complia=
+nce summaries, or any equivalent documentation produced pursuant to ALPR Po=
+licy 433.8, including:</strong></p><p style=3D"font-family: &quot;Open Sans=
+&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizin=
+g: border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-si=
+ze: 16px; margin-bottom: 0;">Response:&nbsp;We have no documents responsive=
+ to this request.</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial,=
+ &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;=
+ line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; marg=
+in-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Ar=
+ial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-=
+box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; =
+margin-bottom: 0;"><strong style=3D"font-family: &quot;Open Sans&quot;, Ari=
+al, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-b=
+ox;">Any memoranda from the Operations Division Captain or Sheriff's design=
+ee to the Sheriff documenting ALPR usage audits for the requested period</s=
+trong></p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helv=
+etica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-heigh=
+t: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: =
+0;">Response:&nbsp;We have no documents responsive to this request.</p><p s=
+tyle=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quo=
+t;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text=
+-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp;</p>=
+<p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue=
+&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; =
+text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><stron=
+g style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&=
+quot;, Helvetica, sans-serif; box-sizing: border-box;">Any substitute, equi=
+valent, or alternative documentation that YCSO contends satisfies the Polic=
+y 433.8 annual audit requirement</strong></p><p style=3D"font-family: &quot=
+;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;=
+ box-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: =
+0; font-size: 16px; margin-bottom: 0;">Response:&nbsp;We have no documents =
+responsive to this request.</p><p style=3D"font-family: &quot;Open Sans&quo=
+t;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: b=
+order-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: =
+16px; margin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans=
+&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizin=
+g: border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-si=
+ze: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open Sans&=
+quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing=
+: border-box;">If no such records exist, a written statement confirming tha=
+t no annual audits were conducted or documented for the period covered by t=
+his request</strong></p><p style=3D"font-family: &quot;Open Sans&quot;, Ari=
+al, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-b=
+ox; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; m=
+argin-bottom: 0;">Response:&nbsp;We have no documents responsive to this re=
+quest.</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helv=
+etica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-heigh=
+t: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: =
+0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;=
+Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-h=
+eight: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bott=
+om: 0;"><strong style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;H=
+elvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">4. Int=
+eragency Data Sharing =E2=80=94 Written Requests and Approvals</strong></p>=
+<p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue=
+&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; =
+text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><stron=
+g style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&=
+quot;, Helvetica, sans-serif; box-sizing: border-box;">&nbsp;</strong></p><=
+p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&=
+quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; t=
+ext-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><strong=
+ style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&q=
+uot;, Helvetica, sans-serif; box-sizing: border-box;">Pursuant to ALPR Poli=
+cy 433.9, which requires written requests and Sheriff or designee approval =
+before ALPR data is shared with outside agencies, and requires approved req=
+uests to be retained on file:</strong></p><p style=3D"font-family: &quot;Op=
+en Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; bo=
+x-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; =
+font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Ope=
+n Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box=
+-sizing: border-box;">&nbsp;</strong></p><p style=3D"font-family: &quot;Ope=
+n Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box=
+-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; f=
+ont-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open=
+ Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-=
+sizing: border-box;">All written requests received from outside agencies fo=
+r access to YCSO Flock Safety ALPR data during the requested period</strong=
+></p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica=
+ Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.=
+5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">R=
+esponse:&nbsp;We have no documents responsive to this request.&nbsp;</p><p =
+style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&qu=
+ot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; tex=
+t-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp;</p=
+><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neu=
+e&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em;=
+ text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;"><stro=
+ng style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue=
+&quot;, Helvetica, sans-serif; box-sizing: border-box;">All written approva=
+ls or denials of such requests</strong></p><p style=3D"font-family: &quot;O=
+pen Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; b=
+ox-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0;=
+ font-size: 16px; margin-bottom: 0;">Response:&nbsp;We have no documents re=
+sponsive to this request.</p><p style=3D"font-family: &quot;Open Sans&quot;=
+, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: bor=
+der-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16=
+px; margin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&q=
+uot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing:=
+ border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size=
+: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open Sans&qu=
+ot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: =
+border-box;">Any internal YCSO records, directives, or written policies gov=
+erning YCSO personnel=E2=80=99s use of the State, Nationwide, Law Enforceme=
+nt, or Community Network access tiers to query plate data collected by agen=
+cies other than YCSO, including any authorization or approval required befo=
+re such access is used.</strong></p><p style=3D"font-family: &quot;Open San=
+s&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizi=
+ng: border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-s=
+ize: 16px; margin-bottom: 0;">Response:&nbsp;We have no documents responsiv=
+e to this request.</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial=
+, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box=
+; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; mar=
+gin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, A=
+rial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border=
+-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px;=
+ margin-bottom: 0;"><strong style=3D"font-family: &quot;Open Sans&quot;, Ar=
+ial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-=
+box;">If no written requests, approvals, or denials exist for the requested=
+ period, a written statement confirming that no outside agency requested YC=
+SO Flock data and that YCSO personnel did not access other agencies=E2=80=99=
+ data through the network tiers described above during the period covered b=
+y this request</strong></p><p style=3D"font-family: &quot;Open Sans&quot;, =
+Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: borde=
+r-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px=
+; margin-bottom: 0;">Response:&nbsp;We have no documents responsive to this=
+ request.</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;H=
+elvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-he=
+ight: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-botto=
+m: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &qu=
+ot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; lin=
+e-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-b=
+ottom: 0;"><strong style=3D"font-family: &quot;Open Sans&quot;, Arial, &quo=
+t;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">5. =
+SB 34 Compliance Documentation</strong></p><p style=3D"font-family: &quot;O=
+pen Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; b=
+ox-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0;=
+ font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Op=
+en Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; bo=
+x-sizing: border-box;">&nbsp;</strong></p><p style=3D"font-family: &quot;Op=
+en Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; bo=
+x-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; =
+font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Ope=
+n Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box=
+-sizing: border-box;">Any internal audits, compliance reviews, assessments,=
+ or correspondence addressing YCSO=E2=80=99s compliance with Civil Code =C2=
+=A7 1798.90.5 et seq. (SB 34), including:</strong></p><p style=3D"font-fami=
+ly: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sa=
+ns-serif; box-sizing: border-box; line-height: 1.5em; text-align: left; mar=
+gin-top: 0; font-size: 16px; margin-bottom: 0;">Response:&nbsp;We have no d=
+ocuments responsive to this request.</p><p style=3D"font-family: &quot;Open=
+ Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-=
+sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0; fo=
+nt-size: 16px; margin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;=
+Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; =
+box-sizing: border-box; line-height: 1.5em; text-align: left; margin-top: 0=
+; font-size: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;O=
+pen Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; b=
+ox-sizing: border-box;">Any communications between YCSO personnel and Flock=
+ Safety representatives regarding SB 34 compliance, documentation requireme=
+nts, audit log completeness, or platform changes affecting officer-level lo=
+gging</strong></p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &q=
+uot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; li=
+ne-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-=
+bottom: 0;">Response:&nbsp;We have no documents responsive to this request.=
+</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5=
+em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&n=
+bsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvet=
+ica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height:=
+ 1.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;=
+"><strong style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helveti=
+ca Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">Any communic=
+ations between YCSO and the California Department of Justice regarding ALPR=
+ usage or SB 34 reporting obligations</strong></p><p style=3D"font-family: =
+&quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-s=
+erif; box-sizing: border-box; line-height: 1.5em; text-align: left; margin-=
+top: 0; font-size: 16px; margin-bottom: 0;">Response: We have no documents =
+responsive to this request.</p><p style=3D"font-family: &quot;Open Sans&quo=
+t;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: b=
+order-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: =
+16px; margin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans=
+&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizin=
+g: border-box; line-height: 1.5em; text-align: left; margin-top: 0; font-si=
+ze: 16px; margin-bottom: 0;"><strong style=3D"font-family: &quot;Open Sans&=
+quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing=
+: border-box;">Any internal assessments of whether the Flock Safety Transpa=
+rency Portal satisfies YCSO's SB 34 documentation requirements</strong></p>=
+<p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue=
+&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; =
+text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">Respon=
+se:&nbsp;We have no documents responsive to this request.</p><p style=3D"fo=
+nt-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvet=
+ica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-align: le=
+ft; margin-top: 0; font-size: 16px; min-height: 16px; margin-bottom: 0;"></=
+p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Ne=
+ue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em=
+; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbs=
+p;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetic=
+a Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1=
+.5em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">=
+Please consider this as a final response to your Public Record Act Request.=
+</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica =
+Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5=
+em; text-align: left; margin-top: 0; font-size: 16px; margin-bottom: 0;">&n=
+bsp;</p><p style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvet=
+ica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; line-height:=
+ 1.5em; text-align: left; margin-top: 0; font-size: 16px; min-height: 16px;=
+ margin-bottom: 0;"></p><p style=3D"font-family: &quot;Open Sans&quot;, Ari=
+al, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-b=
+ox; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; m=
+argin-bottom: 0;">&nbsp;</p><p style=3D"font-family: &quot;Open Sans&quot;,=
+ Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: bord=
+er-box; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16p=
+x; margin-bottom: 0;">If you have any questions please do not hesitate to c=
+ontact our office at (530) 749-7565.&nbsp;&nbsp;&nbsp;</p><p style=3D"font-=
+family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica=
+, sans-serif; box-sizing: border-box; line-height: 1.5em; text-align: left;=
+ margin-top: 0; font-size: 16px; margin-bottom: 0;">&nbsp;</p>
+                       =20
+                      </div>
+                      <div class=3D"shim2andhalf-top" style=3D"font-family:=
+ &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-=
+serif; box-sizing: border-box; margin-top: 60px;">
+                        <p style=3D"font-family: &quot;Open Sans&quot;, Ari=
+al, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-b=
+ox; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px;">
+                          <a class=3D"button--default button--primary" href=
+=3D"https://yubacountyca.nextrequest.com/requests/26-245" style=3D"font-fam=
+ily: &quot;Open Sans&quot;, Arial, sans-serif; box-sizing: border-box; colo=
+r: #FBFBFB; background-color: #1B34FF; border-radius: 3px; display: inline-=
+block; font-size: 16px; font-weight: 600; height: 40px; line-height: 24px; =
+padding: 8px 24px; text-decoration: none; text-transform: none; white-space=
+: nowrap;"> View Request 26-245</a>
+                        </p>
+                      </div>
+                      <div class=3D"request-link" style=3D"font-family: &qu=
+ot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-seri=
+f; box-sizing: border-box; margin-top: -10px; margin-bottom: -10px; margin-=
+left: 1px; opacity: 0.65; font-size: 10px; color: #1B34FF;">https://yubacou=
+ntyca.nextrequest.com/requests/26-245</div>
+                      <br>
+                      <p class=3D"help-text" style=3D"font-family: &quot;Op=
+en Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; bo=
+x-sizing: border-box; line-height: 1.33; text-align: left; margin-top: 30px=
+; font-size: 12px; opacity: 0.65; color: #1C1C41;">
+                       =20
+                      </p>
+                    </td>
+                  </tr><tr>
+                </tr></tbody></table>
+              </td>=20
+            </tr>
+            <tr class=3D"nextrequest-white" style=3D"background-color: #FBF=
+BFB;">
+              <td style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot=
+;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">
+                <table class=3D"email-footer" align=3D"center" width=3D"570=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family: &quot;Open Sans=
+&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizin=
+g: border-box; width: 570px; margin: 0 auto; padding: 0; -premailer-width: =
+570px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: ce=
+nter; background-color: #FBFBFB;">
+                  <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial=
+, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box=
+;"><tr>
+                    <td class=3D"content-cell" align=3D"center" style=3D"fo=
+nt-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvet=
+ica, sans-serif; box-sizing: border-box; padding: 40px;">
+	<a href=3D"https://www.nextrequest.com/" aria-label=3D"NextRequest an Opti=
+mere brand" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helve=
+tica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; color: #4D7=
+5AE;">
+                      <img class=3D"footer-image" src=3D"https://nextreques=
+t-production-assets.s3.us-west-2.amazonaws.com/images/NextRequest-Logo.png"=
+ style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&q=
+uot;, Helvetica, sans-serif; box-sizing: border-box; border: none; width: 1=
+52px; margin-bottom: 10px;">
+					  </a>
+                      <p class=3D"sub align-center" style=3D"font-family: &=
+quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-se=
+rif; box-sizing: border-box; line-height: 1.5em; text-align: center; margin=
+-top: 0; font-size: 10px; color: #AEAEAE;"><em style=3D"font-family: &quot;=
+Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; =
+box-sizing: border-box;">Questions about your request?</em> Reply to this e=
+mail or sign in to contact staff at Yuba County CA.<br><br><em style=3D"fon=
+t-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helveti=
+ca, sans-serif; box-sizing: border-box;">Technical support:</em> See our <a=
+ href=3D"https://www.civicplus.help/nextrequest/docs/requesters" style=3D"f=
+ont-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helve=
+tica, sans-serif; box-sizing: border-box; color: #1B34FF;">help page</a></p=
+>
+                      <p class=3D"footer-bottom" style=3D"font-family: &quo=
+t;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif=
+; box-sizing: border-box; line-height: 1.5em; text-align: left; margin-top:=
+ 0; font-size: 16px; color: #AEAEAE; min-height: 16px;"></p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </tbody></table>
+ =20
+
+<img src=3D"https://ea.pstmrk.it/open?m=3Dv3_1.PRmGaGUdgfN95kLKv44BAA.3mT8u=
+DycaIFR-5585VRwnjkGm-XmKjzIWxHIgeBQLRdM2irj6mQm1K6qBr6IFeW3X9uYP57YWJ5aHAKp=
+mugE0ZGe4hrlW2vqYq3WX6VAHtmkUVZI_K5Yx6ajzlnK26DPDBmpCpFWmThTQGkgPOT6YdUTL7R=
+3-ZnaHtJAZmPw6d6hDIijsxRPaomE9GAVILWMgwLMLYdB0px0FxnXMVuH4qs6DiIEaHa8GSCPlZ=
+40SwuB3RuZdihFEMnII1Jly5kF43pufIPNWQva71L2Tl-jK3mceOaWS269xzr42WK3S_bxhGjqo=
+7_uDEfIcIIZDAEFH9BLkzzWSPyycLJFPuoKiK8Pr0wsBtIfLIoi0w3H8__sV4G9Ey18jubxYrLm=
+iAqBEYYESU8x91zO7g38lOX8b5gUKOBu8czzqrB6DFsBS8AnbQeHyqT2VzNTKnCiZInO7sOmXXu=
+KTvMjnHkZw2v00g6LXyU1ed5g_OCrhfyVAwBhycSg1hdqD3WompqJNUa-L5vjgyTVKLO-pm2Nj0=
+ZIZz1Y1fYOIj0i7J0E-pHxMlbgzn3DY3xyRPOrZftDN9TLJuURCs0v4ulBtJkASmReFGbBjfHbx=
+BE0OcrLEnjHTUQ" width=3D"1" height=3D"1" border=3D"0" alt=3D"" /></body></h=
+tml>
+
+--mk3-010cce067c7748e5959ca06e7c212962--

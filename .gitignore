@@ -1,0 +1,17 @@
+# Sensitive credentials - never commit these
+proton_2FA_recovery_codes.txt
+proton-recovery-phrase.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Backup files
+files.zip
+Master Backup/
+Master Backup Lincoln/
+Master Backup Reno/
